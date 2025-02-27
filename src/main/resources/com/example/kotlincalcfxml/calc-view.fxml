@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="240.0" prefWidth="375.0" spacing="10.0" xmlns="http://javafx.com/javafx/20.0.02" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kotlincalcfxml.CalcController">
+    <!-- Desplegable per escollir el color de fons -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Escull color de fons:" />
+        <ComboBox fx:id="colorPicker" onAction="#onColorChange" />
+    </HBox>
+
+    <!-- Caixa principal -->
+    <VBox alignment="CENTER" spacing="10">
+        <!-- Camps de text per als operands -->
+        <TextField fx:id="textField1" promptText="Introdueix el primer número" />
+        <TextField fx:id="textField2" promptText="Introdueix el segon número" />
+
+        <!-- Botons per a les operacions -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="btnSum" onAction="#onSum" text="+" />
+            <Button fx:id="btnSubtract" onAction="#onSubtract" text="-" />
+            <Button fx:id="btnMultiply" onAction="#onMultiply" text="×" />
+            <Button fx:id="btnDivide" onAction="#onDivide" text="÷" />
+        </HBox>
+
+        <!-- Etiqueta i camp de resultat -->
+        <Label text="Resultat:" />
+        <TextField fx:id="resultField" editable="false" />
+    </VBox>
+</VBox>
