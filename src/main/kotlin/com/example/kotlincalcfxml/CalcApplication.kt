@@ -7,8 +7,10 @@ import javafx.stage.Stage
 
 class CalcApplication : Application() {
     override fun start(stage: Stage) {
+        /* Triem quina vista volem carregar */
         val fxmlLoader = FXMLLoader(CalcApplication::class.java.getResource("calc-view.fxml"))
-        val scene = Scene(fxmlLoader.load(), 400.0, 400.0)
+
+        val scene = Scene(fxmlLoader.load())
         stage.title = "Calculadora Color!"
         stage.scene = scene
         stage.show()

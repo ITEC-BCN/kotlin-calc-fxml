@@ -3,9 +3,10 @@ package com.example.kotlincalcfxml
 import javafx.fxml.FXML
 import javafx.scene.Scene
 import javafx.scene.control.*
-import javafx.stage.Stage
 
 class CalcController {
+    /* Definim els atributs del controller que corresponen als que hi ha a la view.
+    * El nom dels paràmetres ha de coincidir amb l'id de cadascun dels elements de la vista */
     @FXML private lateinit var textField1: TextField
     @FXML private lateinit var textField2: TextField
     @FXML private lateinit var resultField: TextField
@@ -15,6 +16,7 @@ class CalcController {
     fun initialize() {
         // Afegim colors al desplegable
         colorPicker.items.addAll("White", "LightGray", "LightBlue", "LightGreen", "Pink", "Yellow")
+        // Valor per defecte
         colorPicker.value = "White"
     }
 
@@ -51,6 +53,8 @@ class CalcController {
 
             resultField.text = resultat?.toString() ?: ""
         } catch (e: NumberFormatException) {
+            /* Fa un control d'errors per si no pot convertir els inputs a Double.
+            * Mostra un alert (finestra emergent) amb l'error amb la funció showError() definida a sota. */
             showError("Introdueix números vàlids!")
         }
     }
@@ -60,25 +64,6 @@ class CalcController {
         alert.title = "Error"
         alert.headerText = null
         alert.contentText = missatge
-        alert.showAndWait()
-    }
-
-    private fun onNew() {
-        textField1.clear()
-        textField2.clear()
-        resultField.clear()
-    }
-
-    private fun onQuit() {
-        val stage = textField1.scene.window as Stage
-        stage.close()
-    }
-
-    private fun onAbout() {
-        val alert = Alert(Alert.AlertType.INFORMATION)
-        alert.title = "Sobre la calculadora"
-        alert.headerText = "Calculadora FXML en Kotlin"
-        alert.contentText = "Aquesta és una calculadora bàsica desenvolupada amb Kotlin i JavaFX."
         alert.showAndWait()
     }
 }
