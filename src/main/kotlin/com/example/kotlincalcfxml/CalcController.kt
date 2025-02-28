@@ -3,6 +3,8 @@ package com.example.kotlincalcfxml
 import javafx.fxml.FXML
 import javafx.scene.Scene
 import javafx.scene.control.*
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 
 class CalcController {
     /* Definim els atributs del controller que corresponen als que hi ha a la view.
@@ -11,6 +13,7 @@ class CalcController {
     @FXML private lateinit var textField2: TextField
     @FXML private lateinit var resultField: TextField
     @FXML private lateinit var colorPicker: ComboBox<String>
+    @FXML private lateinit var imageView: ImageView
 
     @FXML
     fun initialize() {
@@ -18,6 +21,8 @@ class CalcController {
         colorPicker.items.addAll("White", "LightGray", "LightBlue", "LightGreen", "Pink", "Yellow")
         // Valor per defecte
         colorPicker.value = "White"
+        var image = Image("https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png")
+        imageView.image = Image("https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png")
     }
 
     @FXML
