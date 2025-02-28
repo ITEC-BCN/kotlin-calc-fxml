@@ -38,7 +38,7 @@
             <Button fx:id="btnSubtract" onAction="#onSubtract" text="-" />
             <Button fx:id="btnMultiply" onAction="#onMultiply" text="×" />
             <Button fx:id="btnDivide" onAction="#onDivide" text="÷" />
-            <ImageView fx:id="imageView" fitHeight="47.0" fitWidth="63.0" />
+            <ImageView fx:id="imageView" fitHeight="54.0" fitWidth="54.0" />
         </HBox>
 
         <!-- Etiqueta i camp de resultat -->
