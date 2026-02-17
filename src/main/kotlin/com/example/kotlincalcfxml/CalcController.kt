@@ -19,10 +19,10 @@ class CalcController {
     fun initialize() {
         // Afegim colors al desplegable
         colorPicker.items.addAll("White", "LightGray", "LightBlue", "LightGreen", "Pink", "Yellow")
-        // Valor per defecte
+        // Valors per defecte
         colorPicker.value = "White"
-        var image = Image("https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png")
-        imageView.image = Image("https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png")
+        var imageUrl = selectorPokemon(colorPicker.value)
+        imageView.image = Image(imageUrl)
     }
 
     @FXML
@@ -46,8 +46,32 @@ class CalcController {
     @FXML
     fun onColorChange() {
         val color = colorPicker.value
+        imageView.image = Image(selectorPokemon(color))
+
         val escena: Scene? = textField1.scene
         escena?.root?.style = "-fx-background-color: $color;"
+    }
+
+    /**
+     * Funció privada que serveix per a mostrar la imatge del pokémon en funció del color de fons escollit passat per paràmetre
+     * @param color de tipus String
+     * @return imageUrl de tipus String
+     * @author RIS
+     */
+    private fun selectorPokemon(color: String): String{
+        var imageUrl: String
+
+        imageUrl = when(color) {
+            "White" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/086.png"
+            "LightGray" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/074.png  "
+            "LightBlue" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png"
+            "LightGreen" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png"
+            "Pink" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/039.png"
+            "Yellow" -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png"
+            else -> "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/011.png"
+        }
+
+        return imageUrl
     }
 
     private fun calcular(operacio: (Double, Double) -> Double?) {
